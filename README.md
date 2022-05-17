@@ -21,6 +21,7 @@ add this line to requirements
 ```
 git+https://code.hagstofa.local/ut/web/hagstofan_jwt
 ```
+Then in your relavant code, where you want to authenticate via jwt ..
 ```
 from auth_utils.auth import Authorizer
 
