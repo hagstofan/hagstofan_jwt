@@ -19,7 +19,7 @@ This is meant to be used by APIs using hagstofan's kvörn jwt authorization/auth
 ## use
 add this line to requirements
 ```
-git+https://code.hagstofa.local/BergurTh/hagstofan_jwt
+git+https://code.hagstofa.local/ut/web/hagstofan_jwt
 ```
 ```
 from auth_utils.auth import Authorizer
