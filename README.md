@@ -30,7 +30,7 @@ This is all that is needed for this package to function.
 
 
 ## Use
-add this line to requirements
+add this line to requirements.txt
 ```
 git+https://code.hagstofa.local/ut/web/hagstofan_jwt
 ```
