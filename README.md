@@ -15,7 +15,7 @@ e.g.
 ```
 REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
 ```
-and then have the relavant certs in the specified place on the server.
+and then have the relevant certs in the specified place on the server.
 This is all that is needed for this package to function.
 
 
@@ -34,7 +34,7 @@ add this line to requirements
 ```
 git+https://code.hagstofa.local/ut/web/hagstofan_jwt
 ```
-Then in your relavant code, where you want to authenticate via jwt ..
+Then in your relevant code, where you want to authenticate via jwt ..
 ```
 from auth_utils.auth import Authorizer
 
