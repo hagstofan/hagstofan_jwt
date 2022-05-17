@@ -29,7 +29,7 @@ This is all that is needed for this package to function.
 | audience               | 'innranet'                         | the oidc audience used by kvörn seems to be innranet, so use default           |     no    |
 
 
-## use
+## Use
 add this line to requirements
 ```
 git+https://code.hagstofa.local/ut/web/hagstofan_jwt
@@ -60,4 +60,16 @@ def base_route():
     response.status_code = 200
     return(response)
 
+```
+Optionally, you might also whant your service to provide a route showing what groups are meant to have access.
+e.g.
+```
+@app.route('/.well-known/hagstofan')
+def authorized_groups():
+    return Response(
+        json.dumps(
+            {'roles': list(user_groups)}  #  <-- adding same groups list here as Authorizer is initialized with. (if you want to be nice)
+        ),
+        mimetype='application/json'
+    )
 ```
