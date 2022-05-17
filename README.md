@@ -21,7 +21,7 @@ This is all that is needed for this package to function.
 
 | Parameter or Envar     | Default value                      | Description                                                                    | neccesary |
 |------------------------|------------------------------------|--------------------------------------------------------------------------------|-----------|
-| verify_jwt             | true                               |                                                                                |     no    |
+| verify_jwt             | true                               | verify the jwt in production, in some cases in dev, maybe not                  |     no    |
 | auth_on                | true                               | using our internal OIDC auth ?                                                 |     no    |
 | REQUESTS_CA_BUNDLE     | /etc/ssl/certs/ca-certificates.crt | the certificates                                                               |    yes    |
 | user_groups            | 'None'                             | OIDC AD usergroup with access (set to IT-web for development only)             |    yes    |
