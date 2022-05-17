@@ -8,7 +8,7 @@ from jose import jwk
 class Authorizer(object):
 
     def __init__(self,
-                 user_group,
+                 user_groups,
                  provider='https://oidc.prod.hagstofa.is',
                  audience='innranet',
                  auth_on=True,
@@ -17,7 +17,7 @@ class Authorizer(object):
         self.audience = audience
         self.auth_on = auth_on
         self.verify = verify_jwt
-        self.user_group = user_group
+        self.user_groups = user_groups
         self.cache = dict()
         self.refresh_keys()
 
@@ -79,8 +79,13 @@ class Authorizer(object):
         # Check if any user roles are in the allowed user groups
         # Return username if the user is in an allowed user group - else 401
         user_roles = {group.lower() for group in payload.get('roles', [])}
-        if user_roles & self.user_group:
+        if user_roles & self.user_groups:
             return payload.get('sub')
         else:
             raise Exception("Not in the correct user group")
 
+
+    @property
+    def user_groups(self):
+        return self.user_groups
+    

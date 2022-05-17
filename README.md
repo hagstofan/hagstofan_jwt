@@ -4,16 +4,29 @@
 
 This is a package providing an authorization module with an authenticate function.
 This is meant to be used by APIs using hagstofan's kvörn jwt authorization/authentication
+
 ## Configuration
 
-| Environmental variable | Default value                      | Description                                                                    | neccesary |
+The Authoirizer object in this package only strictly needs one parameter, user_groups
+everything else has defaults which will function in production.
+
+The service using this module needs to set the environmental variable REQUESTS_CA_BUNDLE
+e.g.
+```
+REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+```
+and then have the relavant certs in the specified place on the server.
+This is all that is needed for this package to function.
+
+
+| Parameter or Envar     | Default value                      | Description                                                                    | neccesary |
 |------------------------|------------------------------------|--------------------------------------------------------------------------------|-----------|
-| JWT_VERIFY             | true                               |                                                                                |     no    |
-| AUTH_ON                | true                               | using our internal OIDC auth ?                                                 |     no    |
+| verify_jwt             | true                               |                                                                                |     no    |
+| auth_on                | true                               | using our internal OIDC auth ?                                                 |     no    |
 | REQUESTS_CA_BUNDLE     | /etc/ssl/certs/ca-certificates.crt | the certificates                                                               |    yes    |
-| USER_GROUP             | 'None'                             | OIDC AD usergroup with access (set to IT-web for development only)             |    yes    |
-| OIDC_PROVIDER       	 | 'https://oidc.prod.hagstofa.is'    | the url of the OIDC provider, for dev e.g. maybe http://localhost:8080         |     no    |
-| OIDC_AUDIENCE          | 'innranet'                         | the audience used by kvörn seems to be innranet, so use default                |     no    |
+| user_groups            | 'None'                             | OIDC AD usergroup with access (set to IT-web for development only)             |    yes    |
+| provider          	 | 'https://oidc.prod.hagstofa.is'    | the url of the OIDC provider, for dev e.g. maybe http://localhost:8080         |     no    |
+| audience               | 'innranet'                         | the oidc audience used by kvörn seems to be innranet, so use default           |     no    |
 
 
 ## use
@@ -25,9 +38,9 @@ Then in your relavant code, where you want to authenticate via jwt ..
 ```
 from auth_utils.auth import Authorizer
 
-user_group = '["IT-web"]'
+user_groups = '["IT-web"]'
 
-authorizer = Authorizer(user_group)
+authorizer = Authorizer(user_groups)
 
 # here is a dummy route as in flask, the authenticate function
 # could be used in something else the key is the
@@ -46,4 +59,5 @@ def base_route():
     response = jsonify({'data': 'you have access to this data'})
     response.status_code = 200
     return(response)
+
 ```
