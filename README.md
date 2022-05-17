@@ -36,8 +36,6 @@ authorizer = Authorizer(user_group)
 def base_route():
 
     if current_app.config['AUTH']:
-        # the old way
-        #user = authenticate(request)
         try:
             # using module
             user = authorizer.authenticate(request)  # <--- here
