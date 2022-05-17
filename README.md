@@ -17,8 +17,12 @@ This is meant to be used by APIs using hagstofan's kvörn jwt authorization/auth
 
 
 ## use
+add this line to requirements
 ```
-from hagstofa_jwt.auth_utils.auth import Authorizer
+git+https://code.hagstofa.local/BergurTh/hagstofan_jwt
+```
+```
+from auth_utils.auth import Authorizer
 
 user_group = '["IT-web"]'
 
