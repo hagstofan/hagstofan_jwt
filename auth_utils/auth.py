@@ -84,8 +84,3 @@ class Authorizer(object):
         else:
             raise Exception("Not in the correct user group")
 
-
-    # @property
-    # def user_groups(self):
-    #     return self.user_groups
-    
