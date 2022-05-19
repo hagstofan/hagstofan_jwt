@@ -38,13 +38,24 @@ Then in your relevant code, where you want to authenticate via jwt ..
 ```
 from auth_utils.auth import Authorizer
 
-user_groups = '["IT-web"]'
+"""
+# The groups are taken in as a set object, from a string.
+# typically this string would originate from an environmental variable
+# here below it is just a hardcoded string '["IT-web"]'.
+# Your implementation will probably take this string from an
+# environmental variable.
+"""
+user_groups = {group.lower() for group in json.loads(
+    '["IT-web"]')
+}
 
 authorizer = Authorizer(user_groups)
 
+"""
 # here is a dummy route as in flask, the authenticate function
 # could be used in something else the key is the
 # authorizer.authenticate(request) line
+"""
 @app.route('/')
 def base_route():
 
