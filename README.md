@@ -14,8 +14,8 @@ index auth_header, so:
 ```
 auth_header: Bearer <token>
 ```
-This is intended for the possible use-cases where a web based portal redirect to a web based service
-using this package. In that case the idea is that the portal sets the cookie before redirecting to the
+This is intended for the possible use-cases where a web based portal redirects to a web based service
+using this package. In this instance the idea is that the portal sets the cookie before redirecting to the
 service.
 
 ## Configuration
