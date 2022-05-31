@@ -6,10 +6,14 @@ This is a package providing an authorization module with an authenticate functio
 This is meant to be used for example by APIs using hagstofan's kvörn jwt authorization/authentication.
 It is assumed that the jwt or Bearer token will be in either the request headers under
 Authentication, so:
+```
 Authentication: Bearer <token>
+```
 or in case of there not being anything there, this package will look for a cookie with
 index auth_header, so:
+```
 auth_header: Bearer <token>
+```
 This is intended for the possible use-cases where a web based portal redirect to a web based service
 using this package. In that case the idea is that the portal sets the cookie before redirecting to the
 service.
