@@ -47,7 +47,9 @@ class Authorizer(object):
         
         auth_header = request.headers.get('Authorization')
         if not auth_header:
-            raise Exception("Authorization header is missing")
+            auth_header = request.cookies['auth_header']
+            if not auth_header:
+                raise Exception("Authorization header is missing")
         key = auth_header[7:]
         if self.verify:
             try:
