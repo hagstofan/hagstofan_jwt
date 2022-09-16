@@ -45,7 +45,7 @@ This is all that is needed for this package to function.
 ## Use
 add this line to requirements.txt
 ```
-git+https://code.hagstofa.local/ut/web/hagstofan_jwt
+git+https://github.com/hagstofan/hagstofan_jwt.git
 ```
 Then in your relevant code, where you want to authenticate via jwt ..
 ```
